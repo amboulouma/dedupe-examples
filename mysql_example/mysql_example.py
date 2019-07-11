@@ -328,6 +328,10 @@ def candidates_gen(result_set) :
     for row in result_set :
         if row['block_id'] != block_id :
             if records :
+                for element in records:
+                    for key in element[1]:
+                        if element[1][key] == '':
+                            element[1][key] = None
                 yield records
 
             block_id = row['block_id']
